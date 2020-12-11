@@ -5,15 +5,15 @@
 
 部署指定应用版本的集群
 
-当你部署应用时，集群会先进入pending状态，创建完成后，集群变成active状态。你可以使用[_DescribeClusters_](describe_clusters.html#api-describe-clusters)检查集群状态。
+当你部署应用时，集群会先进入pending状态，创建完成后，集群变成active状态。你可以使用[_DescribeClusters_](/appcenter/dev-platform/api-doc/cloud/describe_clusters)检查集群状态。
 
-此API需要你传递一个JSON格式的`conf`参数，对于不同的应用，此参数格式会有不同，请结合[_DescribeAppVersions_](describe_app_versions.html) 来确定`conf`参数的格式。
+此API需要你传递一个JSON格式的`conf`参数，对于不同的应用，此参数格式会有不同，请结合[_DescribeAppVersions_](/appcenter/dev-platform/api-doc/cloud/describe_app_versions) 来确定`conf`参数的格式。
 
 **Request Parameters**
 
 | Parameter name | Type | Description | Required |
 | --- | --- | --- | --- |
-| version_id | String | 将要部署应用的版本ID | Yes | 
+| version_id | String | 将要部署应用的版本ID | Yes |
 | conf | String | 集群的配置信息(转义并去除空格的JSON格式) | Yes |
 | debug | Integer | 集群是否为开发测试集群。此项针对开发者，如果开发者完成应用上传，部署开发的应用指定debug值可以跳过服务费计费 | No |
 
@@ -36,7 +36,7 @@
 
 **Example**
 
-以应用[Tomcat Cluster](https://appcenter.qingcloud.com/apps/app-jwq1fzqo/Tomcat%20Cluster%20on%20QingCloud)为例，请使用[DescribeAppVersions](describe_app_versions.html)来查看应用的`config.json`和`cluster.json.mustache`配置文件，以此来确定conf的具体值。通过[DescribeAppVersions](describe_app_versions.html)获得的 **Tomcat Cluster** 应用的 `config.json` 配置文件如下。我们需要注意每项的范围(`range`值)，确保我们传递的值都在`config.json`定义的`range`中；还需要注意其中 `required` 属性为 `true` 的项，这些是我们必须向后端传递的值
+以应用[Tomcat Cluster](https://appcenter.qingcloud.com/apps/app-jwq1fzqo/Tomcat%20Cluster%20on%20QingCloud)为例，请使用[DescribeAppVersions](/appcenter/dev-platform/api-doc/cloud/describe_clusters)来查看应用的`config.json`和`cluster.json.mustache`配置文件，以此来确定conf的具体值。通过[DescribeAppVersions](/appcenter/dev-platform/api-doc/cloud/describe_clusters)获得的 **Tomcat Cluster** 应用的 `config.json` 配置文件如下。我们需要注意每项的范围(`range`值)，确保我们传递的值都在`config.json`定义的`range`中；还需要注意其中 `required` 属性为 `true` 的项，这些是我们必须向后端传递的值
 
 ```json
 {

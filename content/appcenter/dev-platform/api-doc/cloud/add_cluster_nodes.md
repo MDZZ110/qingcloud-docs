@@ -3,13 +3,13 @@
 
 # AddClusterNodes[¶](#addclusternodes "永久链接至标题")
 
-横向扩容集群，增加集群节点。前提是集群支持增加节点的操作，即应用配置中角色 `advanced_actions` 包含 `scale_horizontal` ，可以通过 API [DescribeAppVersions](./describe_app_versions.html) 来查看应用的配置文件是否包含此配置，也可以通过 API [DescribeClusters](./describe_clusters.html) 来查看集群的角色是否支持此操作。
+横向扩容集群，增加集群节点。前提是集群支持增加节点的操作，即应用配置中角色 `advanced_actions` 包含 `scale_horizontal` ，可以通过 API [DescribeAppVersions](/appcenter/dev-platform/api-doc/cloud/describe_app_versions) 来查看应用的配置文件是否包含此配置，也可以通过 API [DescribeClusters](/appcenter/dev-platform/api-doc/cloud/describe_clusters) 来查看集群的角色是否支持此操作。
 
 **Request Parameters**
 
 | Parameter name | Type | Description | Required |
 | --- | --- | --- | --- |
-| cluster | String | 增加节点的集群ID | Yes | 
+| cluster | String | 增加节点的集群ID | Yes |
 | node_count | Integer | 增加的节点数量 | Yes |
 | noede_role | String | 增加的节点的角色，如无角色，可不传递此项 | No |
 | resource_conf | String | JSON格式的节点配置，保持默认配置，此项留空即可 | No |
